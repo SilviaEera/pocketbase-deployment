@@ -12,7 +12,7 @@ services:
       - PB_ADMIN_EMAIL=${PB_ADMIN_EMAIL}
       - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD}
       
-    command: /bin/sh -c "/app/pocketbase admin create ${PB_ADMIN_EMAIL} ${PB_ADMIN_PASSWORD} || true; /app/pocketbase serve --http 0.0.0.0:8090"
+    command: /bin/sh -c "/app/pocketbase admin create ${PB_ADMIN_EMAIL} ${PB_ADMIN_PASSWORD} || true"
 
 volumes:
   pocketbase-data:
