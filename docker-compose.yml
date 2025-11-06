@@ -7,20 +7,11 @@ services:
       - pocketbase-public:/app/pb_public
       
     environment:
-      # 1. VARIABLE MÁGICA: Fuerza la detección de la URL/dominio en el puerto 8090
-      # Esto debería hacer que la sección del dominio vuelva a aparecer en Coolify.
       - SERVICE_URL_POCKETBASE_8090
-      
-      # 2. VARIABLES DE ADMINISTRADOR: Fuerzan la detección para la UI
-      # Coolify detecta estas referencias y las convierte en campos editables.
       - PB_ADMIN_EMAIL=${PB_ADMIN_EMAIL}
       - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD}
       
-    # Mantenemos el comando de startup para la creación del admin y el inicio del servidor
-    command: /bin/sh -c "
-      /app/pocketbase admin create ${PB_ADMIN_EMAIL} ${PB_ADMIN_PASSWORD} || true;
-      /app/pocketbase serve --http 0.0.0.0:8090
-    "
+    command: /bin/sh -c "/app/pocketbase admin create ${PB_ADMIN_EMAIL} ${PB_ADMIN_PASSWORD} || true; /app/pocketbase serve --http 0.0.0.0:8090"
 
 volumes:
   pocketbase-data:
