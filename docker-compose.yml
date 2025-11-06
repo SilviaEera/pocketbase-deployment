@@ -6,6 +6,6 @@ services:
     ports:
       - "8090:8090"
     volumes:
-      - ./pb_data:/usr/local/bin/pb_data
-      - ./pb_public:/usr/local/bin/pb_public
-      - ./pb_hooks:/usr/local/bin/pb_hooks
+      - ./pb_data:/app/pb_data
+      - ./pb_public:/app/pb_public
+      - ./pb_hooks:/app/pb_hooks
